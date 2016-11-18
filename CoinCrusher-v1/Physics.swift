@@ -14,4 +14,5 @@ struct Collision {
     static let All : UInt32 = UInt32.max
     static let Hero: UInt32 = 0b1
     static let Wall: UInt32 = 0b1
+    static let Saw: UInt32 = 0b1
 }
