@@ -11,9 +11,23 @@
 		042600D01DDA6EE1006CD2BF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042600CF1DDA6EE1006CD2BF /* GameScene.swift */; };
 		042600D21DDA6EE1006CD2BF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042600D11DDA6EE1006CD2BF /* GameViewController.swift */; };
 		042600D51DDA6EE1006CD2BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042600D31DDA6EE1006CD2BF /* Main.storyboard */; };
-		042600D71DDA6EE1006CD2BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042600D61DDA6EE1006CD2BF /* Assets.xcassets */; };
 		042600DA1DDA6EE1006CD2BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042600D81DDA6EE1006CD2BF /* LaunchScreen.storyboard */; };
-		04DFDC361DDA74030071A694 /* SpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFDC351DDA74030071A694 /* SpriteNode.swift */; };
+		047890DD1DE0A752007DAF5D /* pickup.wav in Resources */ = {isa = PBXBuildFile; fileRef = 047890DC1DE0A752007DAF5D /* pickup.wav */; };
+		047890DF1DE0AAF6007DAF5D /* GameStartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047890DE1DE0AAF6007DAF5D /* GameStartScene.swift */; };
+		047890E11DE0C2B7007DAF5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047890E01DE0C2B7007DAF5D /* Assets.xcassets */; };
+		047890E31DE10A39007DAF5D /* LavaNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047890E21DE10A39007DAF5D /* LavaNode.swift */; };
+		047890E51DE122E5007DAF5D /* RunnerNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047890E41DE122E5007DAF5D /* RunnerNode.swift */; };
+		047890E71DE138E3007DAF5D /* ClickerNoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047890E61DE138E3007DAF5D /* ClickerNoder.swift */; };
+		047890E91DE13B97007DAF5D /* ShotNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047890E81DE13B97007DAF5D /* ShotNode.swift */; };
+		047890EB1DE14124007DAF5D /* ARCADE.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 047890EA1DE14124007DAF5D /* ARCADE.TTF */; };
+		047890ED1DE1490A007DAF5D /* jump.wav in Resources */ = {isa = PBXBuildFile; fileRef = 047890EC1DE1490A007DAF5D /* jump.wav */; };
+		047890F01DE14A10007DAF5D /* bgm1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 047890EE1DE14A10007DAF5D /* bgm1.wav */; };
+		047890F11DE14A10007DAF5D /* bgm2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 047890EF1DE14A10007DAF5D /* bgm2.wav */; };
+		048C44001DDCEF9600F82B58 /* HeroNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C43FF1DDCEF9600F82B58 /* HeroNode.swift */; };
+		048C44021DDCF14C00F82B58 /* WallNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C44011DDCF14C00F82B58 /* WallNode.swift */; };
+		048C44041DDCF19F00F82B58 /* GoldNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C44031DDCF19F00F82B58 /* GoldNode.swift */; };
+		048C44061DDCF3B900F82B58 /* SawNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C44051DDCF3B900F82B58 /* SawNode.swift */; };
+		048C44081DDCF8D900F82B58 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048C44071DDCF8D900F82B58 /* GameOverScene.swift */; };
 		04DFDC381DDA77BE0071A694 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DFDC371DDA77BE0071A694 /* Physics.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,10 +37,24 @@
 		042600CF1DDA6EE1006CD2BF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		042600D11DDA6EE1006CD2BF /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		042600D41DDA6EE1006CD2BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		042600D61DDA6EE1006CD2BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		042600D91DDA6EE1006CD2BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		042600DB1DDA6EE1006CD2BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		04DFDC351DDA74030071A694 /* SpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteNode.swift; sourceTree = "<group>"; };
+		047890DC1DE0A752007DAF5D /* pickup.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pickup.wav; sourceTree = "<group>"; };
+		047890DE1DE0AAF6007DAF5D /* GameStartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStartScene.swift; sourceTree = "<group>"; };
+		047890E01DE0C2B7007DAF5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		047890E21DE10A39007DAF5D /* LavaNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LavaNode.swift; sourceTree = "<group>"; };
+		047890E41DE122E5007DAF5D /* RunnerNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunnerNode.swift; sourceTree = "<group>"; };
+		047890E61DE138E3007DAF5D /* ClickerNoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClickerNoder.swift; sourceTree = "<group>"; };
+		047890E81DE13B97007DAF5D /* ShotNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShotNode.swift; sourceTree = "<group>"; };
+		047890EA1DE14124007DAF5D /* ARCADE.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = ARCADE.TTF; sourceTree = "<group>"; };
+		047890EC1DE1490A007DAF5D /* jump.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = jump.wav; sourceTree = "<group>"; };
+		047890EE1DE14A10007DAF5D /* bgm1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bgm1.wav; sourceTree = "<group>"; };
+		047890EF1DE14A10007DAF5D /* bgm2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = bgm2.wav; sourceTree = "<group>"; };
+		048C43FF1DDCEF9600F82B58 /* HeroNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeroNode.swift; sourceTree = "<group>"; };
+		048C44011DDCF14C00F82B58 /* WallNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallNode.swift; sourceTree = "<group>"; };
+		048C44031DDCF19F00F82B58 /* GoldNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoldNode.swift; sourceTree = "<group>"; };
+		048C44051DDCF3B900F82B58 /* SawNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SawNode.swift; sourceTree = "<group>"; };
+		048C44071DDCF8D900F82B58 /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		04DFDC371DDA77BE0071A694 /* Physics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,17 +88,39 @@
 		042600C81DDA6EE1006CD2BF /* CoinCrusher-v1 */ = {
 			isa = PBXGroup;
 			children = (
+				047890DB1DE0A752007DAF5D /* Sounds */,
 				042600C91DDA6EE1006CD2BF /* AppDelegate.swift */,
+				047890DE1DE0AAF6007DAF5D /* GameStartScene.swift */,
+				048C44071DDCF8D900F82B58 /* GameOverScene.swift */,
 				042600CF1DDA6EE1006CD2BF /* GameScene.swift */,
+				047890E61DE138E3007DAF5D /* ClickerNoder.swift */,
+				047890E81DE13B97007DAF5D /* ShotNode.swift */,
+				048C43FF1DDCEF9600F82B58 /* HeroNode.swift */,
+				047890E41DE122E5007DAF5D /* RunnerNode.swift */,
+				048C44011DDCF14C00F82B58 /* WallNode.swift */,
+				047890E21DE10A39007DAF5D /* LavaNode.swift */,
+				048C44031DDCF19F00F82B58 /* GoldNode.swift */,
+				048C44051DDCF3B900F82B58 /* SawNode.swift */,
 				042600D11DDA6EE1006CD2BF /* GameViewController.swift */,
-				04DFDC351DDA74030071A694 /* SpriteNode.swift */,
 				04DFDC371DDA77BE0071A694 /* Physics.swift */,
+				047890EA1DE14124007DAF5D /* ARCADE.TTF */,
 				042600D31DDA6EE1006CD2BF /* Main.storyboard */,
-				042600D61DDA6EE1006CD2BF /* Assets.xcassets */,
 				042600D81DDA6EE1006CD2BF /* LaunchScreen.storyboard */,
+				047890E01DE0C2B7007DAF5D /* Assets.xcassets */,
 				042600DB1DDA6EE1006CD2BF /* Info.plist */,
 			);
 			path = "CoinCrusher-v1";
+			sourceTree = "<group>";
+		};
+		047890DB1DE0A752007DAF5D /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				047890EE1DE14A10007DAF5D /* bgm1.wav */,
+				047890EF1DE14A10007DAF5D /* bgm2.wav */,
+				047890DC1DE0A752007DAF5D /* pickup.wav */,
+				047890EC1DE1490A007DAF5D /* jump.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,6 +155,7 @@
 				TargetAttributes = {
 					042600C51DDA6EE1006CD2BF = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 22RD35BKW9;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -132,8 +183,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047890F01DE14A10007DAF5D /* bgm1.wav in Resources */,
+				047890ED1DE1490A007DAF5D /* jump.wav in Resources */,
 				042600D51DDA6EE1006CD2BF /* Main.storyboard in Resources */,
-				042600D71DDA6EE1006CD2BF /* Assets.xcassets in Resources */,
+				047890EB1DE14124007DAF5D /* ARCADE.TTF in Resources */,
+				047890F11DE14A10007DAF5D /* bgm2.wav in Resources */,
+				047890DD1DE0A752007DAF5D /* pickup.wav in Resources */,
+				047890E11DE0C2B7007DAF5D /* Assets.xcassets in Resources */,
 				042600DA1DDA6EE1006CD2BF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,11 +201,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DFDC361DDA74030071A694 /* SpriteNode.swift in Sources */,
+				047890E31DE10A39007DAF5D /* LavaNode.swift in Sources */,
 				042600D01DDA6EE1006CD2BF /* GameScene.swift in Sources */,
+				048C44061DDCF3B900F82B58 /* SawNode.swift in Sources */,
+				048C44041DDCF19F00F82B58 /* GoldNode.swift in Sources */,
 				04DFDC381DDA77BE0071A694 /* Physics.swift in Sources */,
+				047890E91DE13B97007DAF5D /* ShotNode.swift in Sources */,
 				042600D21DDA6EE1006CD2BF /* GameViewController.swift in Sources */,
+				047890E71DE138E3007DAF5D /* ClickerNoder.swift in Sources */,
+				047890DF1DE0AAF6007DAF5D /* GameStartScene.swift in Sources */,
+				048C44001DDCEF9600F82B58 /* HeroNode.swift in Sources */,
 				042600CA1DDA6EE1006CD2BF /* AppDelegate.swift in Sources */,
+				048C44081DDCF8D900F82B58 /* GameOverScene.swift in Sources */,
+				048C44021DDCF14C00F82B58 /* WallNode.swift in Sources */,
+				047890E51DE122E5007DAF5D /* RunnerNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +335,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 22RD35BKW9;
 				INFOPLIST_FILE = "CoinCrusher-v1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Lingtong.CoinCrusher-v1";
@@ -282,6 +348,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 22RD35BKW9;
 				INFOPLIST_FILE = "CoinCrusher-v1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Lingtong.CoinCrusher-v1";

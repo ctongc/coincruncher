@@ -8,69 +8,128 @@
 
 import SpriteKit
 import GameplayKit
+import CoreMotion
+import UIKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate{
-    let hero = SKSpriteNode(imageNamed: "hero")
-    let wall = SKSpriteNode(imageNamed: "wall")
-    var saw = SKSpriteNode(imageNamed: "saw")
+    let hero = Hero()
+    let lava = Lava(tex: "Lava-1", scale: 0.4)
+    let wall1 = Wall(tex: "Wall-1", scale: 0.4, yOffset: 0)
+    let wall2 = Wall(tex: "Wall-2", scale: 0.4, yOffset: 0)
+    let wall3 = Wall(tex: "Wall-3", scale: 0.4, yOffset: 0)
+    let gold1 = Gold()
+    let gold2 = Gold()
+    let gold3 = Gold()
+    let saw1 = Saw(scale: 0.6)
+    let saw2 = Saw(scale: 0.6)
+    let motionManager = CMMotionManager()
+    var coinCount = 3
     
     override func didMove(to view: SKView) {
-        backgroundColor = SKColor.white
-        hero.position = CGPoint(x: size.width*0.1, y: size.height*0.8)
-        wall.position = CGPoint(x: size.width*0.2, y: size.height*0.5)
+        self.backgroundColor = UIColor(red:0.016, green:0.093, blue:0.129, alpha:1)
+        hero.position = CGPoint(x: size.width/2, y: size.height*0.95)
+        lava.position = CGPoint(x: self.size.width/2, y: lava.size.height/1.9)
+        wall1.position = CGPoint(x: wall1.size.width/2, y: size.height*0.5)
+        wall2.position = CGPoint(x: self.size.width-wall2.size.width/2, y: self.size.height*0.8)
+        wall3.position = CGPoint(x: self.size.width-wall3.size.width/2, y: self.size.height*0.3)
+        gold1.position = CGPoint(x: size.width*0.7, y: size.height*0.9)
+        gold2.position = CGPoint(x: size.width*0.2, y: size.height*0.2)
+        gold3.position = CGPoint(x: size.width*0.9, y: size.height*0.5)
+        saw1.position = CGPoint(x: 0, y: size.height*0.2)
+        saw2.position = CGPoint(x: self.size.width, y: size.height*0.9)
+        self.addChild(hero)
+        self.addChild(wall1)
+        self.addChild(wall2)
+        self.addChild(wall3)
+        self.addChild(lava)
+        self.addChild(gold1)
+        self.addChild(gold2)
+        self.addChild(gold3)
+        self.addChild(saw1)
+        self.addChild(saw2)
         
-        addChild(hero)
-        addChild(wall)
-        
-        physicsWorld.gravity = CGVector(dx: 0, dy: -0.6)
+        physicsWorld.gravity = CGVector(dx: 0, dy: -1)
         physicsWorld.contactDelegate = self
         
-        hero.physicsBody = SKPhysicsBody(rectangleOf: hero.size)
-        hero.physicsBody?.isDynamic = true
-        hero.physicsBody?.collisionBitMask = Collision.Hero
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+        self.physicsBody?.categoryBitMask = Collision.Wall
         
-        wall.physicsBody = SKPhysicsBody(rectangleOf: wall.size)
-        wall.physicsBody?.isDynamic = false
-        wall.physicsBody?.affectedByGravity = false
-        wall.physicsBody?.collisionBitMask = Collision.Wall
+        // add action to saw
+        saw1.moveUpDown(up: self.size.height*0.8, down: self.size.height*0.2, duration: 3.5, upFirst: true)
+        saw2.moveUpDown(up: self.size.height*0.9, down: self.size.height*0.4, duration: 3.5, upFirst: false)
         
-        addSaw()
-        print("hello")
+        // set up accelerometer
+        if motionManager.isAccelerometerAvailable {
+            motionManager.startAccelerometerUpdates(to: OperationQueue.current!, withHandler: {
+                (data, error) in
+                guard let dx = data?.acceleration.x else {return}
+                print(dx)
+                self.hero.physicsBody?.applyImpulse(CGVector(dx: dx>0 ? 10 : -10, dy: 0))
+//                print(self.hero.physicsBody?.velocity.dx)
+                if (self.hero.physicsBody?.velocity.dx)! > CGFloat(80) {
+                    self.hero.physicsBody?.velocity.dx = 80
+                } else if (self.hero.physicsBody?.velocity.dx)! < CGFloat(-80) {
+                    self.hero.physicsBody?.velocity.dx = -80
+                }
+                if ((self.hero.physicsBody?.velocity.dx)! > CGFloat(0) &&
+                    self.hero.direction == "left") {
+                    self.hero.direction = "right"
+                    self.hero.flying(direction: "right")
+                } else if ((self.hero.physicsBody?.velocity.dx)! < CGFloat(0) &&
+                    self.hero.direction == "right") {
+                    self.hero.direction = "left"
+                    self.hero.flying(direction: "left")
+                }
+            })
+        }
         
+        // add background music 
+        let backgroundMusic = SKAudioNode(fileNamed: "bgm2.wav")
+        backgroundMusic.autoplayLooped = true
+        addChild(backgroundMusic)
         
     }
     
-    func addSaw(){
+    func didBegin(_ contact: SKPhysicsContact) {
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
         
-        saw.setScale(0.05)
-        let radius = saw.size.height/2
-        saw.zPosition = 1;
-        saw.position = CGPoint(x: 0, y: radius)
-        addChild(saw)
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
         
-        saw.physicsBody? = SKPhysicsBody(rectangleOf: saw.size)
-        saw.physicsBody?.isDynamic = true
-        saw.physicsBody?.affectedByGravity = false
-        saw.physicsBody?.collisionBitMask = Collision.Saw
-        
-        let height = frame.height;
-        let actualDuration = random() * 5 + 5
-        let moveUp = SKAction.move(to: CGPoint(x: 0, y: height - radius), duration: TimeInterval(actualDuration))
-        let moveDown = SKAction.move(to: CGPoint(x: 0, y: radius), duration: TimeInterval(actualDuration))
-        
-        saw.run(SKAction.repeatForever(SKAction.sequence([moveUp, moveDown])))
+        if ((firstBody.categoryBitMask & Collision.Hero != 0) &&
+            (secondBody.categoryBitMask & Collision.Gold != 0)) {
+            eatGold(hero: firstBody.node as! SKSpriteNode, gold: secondBody.node as! SKSpriteNode)
+        } else if((firstBody.categoryBitMask & Collision.Hero != 0) &&
+            (secondBody.categoryBitMask & Collision.Lethal != 0)) {
+            gameEndWith(won: false)
+        }
     }
     
-    /*calculates random position*/
-    func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        hero.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
+        if (hero.physicsBody?.velocity.dy)! > CGFloat(100) {
+            self.hero.physicsBody?.velocity.dy = 100
+        }
     }
     
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        guard let touch = touches.first else {
-//            return
-//        }
-//        
-//        
-//    }
+    func eatGold(hero: SKSpriteNode, gold: SKSpriteNode) {
+        gold.removeFromParent()
+        run(SKAction.playSoundFileNamed("pickup.wav", waitForCompletion: true))
+        self.coinCount -= 1
+        
+        if (self.coinCount == 0) {
+            gameEndWith(won: true)
+        }
+    }
+    func gameEndWith(won: Bool) {
+        let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
+        let gameOverScene = GameOverScene(size: self.size, won: won)
+        self.view?.presentScene(gameOverScene, transition: reveal)
+    }
 }
